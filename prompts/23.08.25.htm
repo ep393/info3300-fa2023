@@ -68,29 +68,97 @@
     //    We have three different declarations, var, const, and let
     //    Var came earlier, const & let more recently
     //    (only use VAR if you really mean it!)
-    
-    
+
+    let fruit = 'strawberry'; // local scope
+    var veg = 'celery'; // global scope
+    const legume = 'lentil'; // local scope
+
+    console.log("--start--");
+    console.log(fruit);
+    console.log(veg);
+    console.log(legume);
+
+    if (fruit === "strawberry") {
+      let fruit = "durian";
+      let veg = "broccoli";
+      const legume = "red bean";
+      console.log("--in if--");
+      console.log(fruit);
+      console.log(veg);
+      console.log(legume);
+    }
+
+    // everything is usual so far
+
+    console.log("--after if--");
+    console.log(fruit);
+    console.log(veg);
+    console.log(legume);
+
+    // "strawberry, brocolli, lentil"
+    // var is globally scoped, it is immutable and you can access it anywhere in your code
+    // the change in var got stuck
+
+    // when you remove the declaration as below, this throws an error since you cannot overwrite a const
+    if (fruit === "strawberry") {
+      fruit = "durian";
+      veg = "broccoli";
+      legume = "red bean"; // this causes error
+      console.log("--in if--");
+      console.log(fruit);
+      console.log(veg);
+      console.log(legume);
+    }
+    // Look more into variable scoping on JS to get some more practice
           
     // Let's look at *hoisting* of variables
-    
-    
-    
-  
-  
-  
+    console.log(x);
+    var x = 5;
+    console.log(x);
+    // we are looking for x before we defined, but the first log return undefined and do not throw an error
+    // JS preruns the code and replaces the variables with the values.
+    // don't use var if you don't really need to use it
+    // only use var if you need to acces them anywhere and make the names capital, e.g. X_VAR
+
+
     // * Conditionals, functions and loops in c/java style and functional style.
     //   (to learn more about functions, check out http://ejohn.org/apps/learn/)
     
     // If statements:
-    
-    
+    let y = 5;
+    if (y == 5) {
+      console.log("equals 5");
+    } 
+    else if (y == 6) { // not elif!
+      console.log("equals 6");
+    }
+    else {
+      console.log("else")
+    }    
     
     // Functions:
-    
-  
+    function favoriteColor() {
+      return "blue";
+    }
+    console.log(favoriteColor());
 
-    
-    
+    let favoriteNumber = function() { return 51; }; // anonymous function
+    console.log(favoriteNumber());
+
+    // Functions can be used like any object, like functions that take functions as paraemeters etc.
+    function display(f) {
+      console.log(f());
+    }
+    display(favoriteNumber);
+
+    // arrow functions
+    let bestAnimal = () => {console.log("dog"); }
+    let addNums = (num1, num2) => {return num1 + num2; }
+    let addNums2 = (num1, num2) => {num1 + num2; }
+    let multby2 = (num1, num2) => {num1 * 2 }
+
+    bestAnimal();
+    console.log(mulby2(5));
     
     // * Brief foray into "destructuring"
     // Javascript can help to destructure objects and arrays during variable assignment
