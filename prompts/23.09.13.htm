@@ -197,6 +197,7 @@
             .attr('transform', `translate(${margins.left - 10},${margins.top})`)
             .call(leftAxis);
 
+
           // Why do we use call? It's because axisBottom returns a function that we want to execute
           // You can think of d3.axis as giving you a function that 'pastes' the axis labels into an element
           //  By running the axis function on an SVG group, we 'paste' some new SVG elements into the group
